@@ -15,6 +15,11 @@ Attach to the docker image.
 docker container exec -it my_radius bash
 ```
 
+Obtain currently used certs.
+```bash
+docker container cp my_radius:/etc/freeradius/certs .
+```
+
 ## Config Note
 * [Good explaination about the file structure.](https://networkradius.com/doc/3.0.10/raddb/home.html)
 * [FreeRADIUS github with config example.](https://github.com/FreeRADIUS/freeradius-server)
