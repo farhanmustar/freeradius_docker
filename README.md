@@ -21,15 +21,24 @@ docker container cp my_radius:/etc/freeradius/certs .
 ```
 
 ## Config Note
+
 * [Good explaination about the file structure.](https://networkradius.com/doc/3.0.10/raddb/home.html)
 * [FreeRADIUS github with config example.](https://github.com/FreeRADIUS/freeradius-server)
 * [FreeRADIUS docs.](https://github.com/FreeRADIUS/freeradius-server/blob/master/doc/antora/modules/raddb/pages/index.adoc) 
 
-
-### Test using freeradius-utils
+## Test using freeradius-utils
 
 Install and test using cleartext-password.
 ```bash
 sudo apt-get install freeradius-utils
 radtest bob test localhost 0 testing123
+```
+
+## Cleanup
+
+* Due to docker build is being cached, removing the image is not enough.
+* Run following to ensure older generated certs is not being reused.
+```bash
+docker image prune -a
+docker system prune -a
 ```
